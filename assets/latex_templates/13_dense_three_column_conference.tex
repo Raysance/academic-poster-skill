@@ -1,0 +1,57 @@
+\documentclass[final]{beamer}
+\usepackage[size=a0,orientation=landscape,scale=1.08]{beamerposter}
+\usepackage{graphicx,booktabs,amsmath,ragged2e}
+\setbeamertemplate{navigation symbols}{}
+\definecolor{ConferenceBlue}{RGB}{26,101,158}
+\definecolor{BannerRed}{RGB}{158,31,36}
+\definecolor{BlockBg}{RGB}{240,247,244}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{block title}{fg=white,bg=ConferenceBlue}
+\setbeamercolor{block body}{fg=black,bg=BlockBg}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\title{Academic Poster Preview}
+\subtitle{Dense three-column conference layout}
+\author{Author Names}
+\institute{Institution / Department}
+\newcommand{\denseblock}[2]{\begin{block}{\large\strut #1}\vspace{.25cm}\justifying #2\vspace{.2cm}\end{block}}
+\begin{document}
+\begin{frame}[t]
+\begin{columns}[c,totalwidth=.96\paperwidth]
+\begin{column}{.12\paperwidth}
+\centering\includegraphics[width=.7\linewidth]{left-logo-or-qr}
+\end{column}
+\begin{column}{.72\paperwidth}
+\centering
+{\VeryHuge\bfseries\color{ConferenceBlue}\inserttitle\par}
+\vspace{.3cm}
+{\LARGE\color{black}\insertsubtitle\par}
+\vspace{.2cm}
+{\Large\insertauthor\quad|\quad\insertinstitute}
+\end{column}
+\begin{column}{.12\paperwidth}
+\centering\includegraphics[width=.7\linewidth]{right-logo-or-qr}
+\end{column}
+\end{columns}
+\vspace{.45cm}
+\noindent\hspace{.02\paperwidth}\textcolor{BannerRed}{\rule{.96\paperwidth}{4pt}}
+\vspace{.55cm}
+\begin{columns}[t,totalwidth=.96\paperwidth]
+\begin{column}{.31\paperwidth}
+\denseblock{Motivation}{Dense background and challenge analysis in compact bullets.\begin{itemize}\item Problem context and target gap.\item Constraints, data, or application setting.\item Main hypothesis and contribution.\end{itemize}}
+\denseblock{Main Ideas}{Core idea one, core idea two, and core idea three. Reserve space for a compact conceptual diagram if needed.}
+\denseblock{Theory}{Formula: $y=f(x;\theta)$, objective function, symbol definitions, and measurement assumptions.}
+\end{column}
+\hfill
+\begin{column}{.34\paperwidth}
+\denseblock{Proposed Method}{\centering\includegraphics[width=.95\linewidth,height=.28\paperheight,keepaspectratio]{workflow-image}\par{\footnotesize\color{gray} Fig. 1: Framework workflow outline.}\par\justifying Method summary, algorithm steps, and implementation notes approved for the poster.}
+\denseblock{Experimental Setup}{Datasets, controls, baselines, metrics, equipment, and reproducibility details.}
+\end{column}
+\hfill
+\begin{column}{.31\paperwidth}
+\denseblock{Experimental Results}{\centering\includegraphics[width=.95\linewidth,height=.18\paperheight,keepaspectratio]{result-panel}\par\vspace{.2cm}\begin{tabular}{lccc}\toprule Method & M1 & M2 & M3 \\\\ \midrule Baseline & -- & -- & -- \\\\ Ours & \textbf{--} & \textbf{--} & \textbf{--} \\\\ \bottomrule\end{tabular}}
+\denseblock{Ablation and Analysis}{Compact ablation chart, failure cases, uncertainty, limitations, and interpretation.}
+\denseblock{Conclusion}{One-sentence takeaway, future work, references, acknowledgements, and contact/QR information.}
+\end{column}
+\end{columns}
+\end{frame}
+\end{document}

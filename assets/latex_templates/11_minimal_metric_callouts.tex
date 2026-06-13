@@ -1,0 +1,63 @@
+\documentclass[final]{beamer}
+\usepackage[size=a0,orientation=portrait,scale=1.08]{beamerposter}
+\usepackage{graphicx,booktabs,amsmath,ragged2e}
+\setbeamertemplate{navigation symbols}{}
+\definecolor{Accent}{RGB}{158,31,36}
+\definecolor{Ink}{RGB}{34,34,34}
+\definecolor{Rule}{RGB}{224,224,224}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=Ink}
+\title{Academic Poster Preview}
+\subtitle{Minimal portrait layout with large quantitative callouts}
+\author{Author Names}
+\institute{Institution / Department}
+\newcommand{\sectionlabel}[1]{\vspace{.45cm}{\Large\bfseries\color{Accent}#1}\par\vspace{.25cm}}
+\newcommand{\metric}[2]{\centering{\fontsize{64}{72}\selectfont\bfseries\color{Accent}#1}\par{\Large\color{gray}#2}}
+\begin{document}
+\begin{frame}[t]
+\vspace{1.1cm}
+\begin{columns}[c,totalwidth=.88\paperwidth]
+\begin{column}{.74\paperwidth}
+{\VeryHuge\bfseries\color{Ink}\inserttitle\par}
+\vspace{.35cm}
+{\LARGE\color{gray}\insertsubtitle\par}
+\vspace{.2cm}
+{\Large\color{gray}\insertauthor\quad|\quad\insertinstitute}
+\end{column}
+\begin{column}{.12\paperwidth}
+\centering\includegraphics[width=.85\linewidth]{logo-or-qr}
+\end{column}
+\end{columns}
+\vspace{.55cm}
+\noindent\hspace{.06\paperwidth}\textcolor{Accent}{\rule{.88\paperwidth}{3pt}}
+\vspace{.9cm}
+\begin{columns}[c,totalwidth=.88\paperwidth]
+\begin{column}{.24\paperwidth}\metric{--\%}{primary outcome}\end{column}
+\begin{column}{.24\paperwidth}\metric{n=--}{samples or episodes}\end{column}
+\begin{column}{.24\paperwidth}\metric{--x}{improvement}\end{column}
+\begin{column}{.24\paperwidth}\metric{$p<--$}{statistical signal}\end{column}
+\end{columns}
+\vspace{.7cm}
+\noindent\hspace{.06\paperwidth}\textcolor{Rule}{\rule{.88\paperwidth}{1pt}}
+\vspace{.7cm}
+\begin{columns}[t,totalwidth=.88\paperwidth]
+\begin{column}{.42\paperwidth}
+\sectionlabel{Motivation and Goal}
+\justifying Concise motivation, research gap, and hypothesis. Keep prose short and use whitespace to emphasize the central message.
+\sectionlabel{Theory and Formula}
+Key equation space: $y=f(x;\theta)$, assumptions, symbol definitions, and how measured variables connect to the model.
+\sectionlabel{Model and Method}
+\centering\includegraphics[width=.9\linewidth,height=.22\paperheight,keepaspectratio]{workflow-image}
+\end{column}
+\hfill
+\begin{column}{.42\paperwidth}
+\sectionlabel{Experimental Workflow}
+\centering\includegraphics[width=.9\linewidth,height=.2\paperheight,keepaspectratio]{schematic-image}
+\sectionlabel{Quantitative Results}
+\centering\includegraphics[width=.9\linewidth,height=.18\paperheight,keepaspectratio]{result-panel}
+\sectionlabel{Interpretation}
+\justifying Compact takeaways, limitations, future work, references, contact details, and approved QR/logo assets.
+\end{column}
+\end{columns}
+\end{frame}
+\end{document}

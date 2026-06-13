@@ -1,0 +1,80 @@
+\documentclass[final]{beamer}
+\usepackage[size=a0,orientation=portrait,scale=1.06]{beamerposter}
+\usepackage{graphicx,booktabs,amsmath,ragged2e,tcolorbox}
+\setbeamertemplate{navigation symbols}{}
+\definecolor{TopBanner}{RGB}{10,37,64}
+\definecolor{SectionCyan}{RGB}{0,168,150}
+\definecolor{SectionBlue}{RGB}{67,97,238}
+\definecolor{CardBg}{RGB}{248,249,250}
+\definecolor{CardBorder}{RGB}{233,236,239}
+\setbeamercolor{background canvas}{bg=white}
+\title{Academic Poster Preview}
+\subtitle{Full-width banner with modular rounded content cards}
+\author{Author Names}
+\institute{Institution / Department}
+\tcbset{
+  posterbox/.style={
+    colback=CardBg,
+    colframe=CardBorder,
+    arc=4mm,
+    boxrule=1.2pt,
+    left=10mm,
+    right=10mm,
+    top=8mm,
+    bottom=8mm
+  },
+  sectionbar/.style={
+    colframe=#1,
+    colback=#1,
+    arc=2mm,
+    boxrule=0pt,
+    top=3mm,
+    bottom=3mm,
+    left=8mm
+  }
+}
+\newcommand{\sectionbar}[2]{\begin{tcolorbox}[sectionbar=#1]{\large\bfseries\color{white}#2}\end{tcolorbox}\vspace{.25cm}}
+\begin{document}
+\begin{frame}[t]
+\begin{tcolorbox}[colback=TopBanner,colframe=TopBanner,arc=0mm,boxrule=0pt,top=18mm,bottom=18mm,left=18mm,right=18mm]
+\centering
+{\VeryHuge\bfseries\color{white}\inserttitle\par}
+\vspace{.35cm}
+{\LARGE\color{lightgray}\insertsubtitle\par}
+\vspace{.25cm}
+{\Large\color{lightgray}\insertauthor\quad|\quad\insertinstitute}
+\end{tcolorbox}
+\vspace{.65cm}
+\begin{columns}[t,totalwidth=.92\paperwidth]
+\begin{column}{.45\paperwidth}
+\begin{tcolorbox}[colback=white,colframe=SectionBlue,title=\textbf{Research Question},coltitle=SectionBlue,attach title to upper,after title={\\[.3ex]},boxrule=1pt,arc=2mm]
+\justifying State the core scientific or engineering question in one readable sentence.
+\end{tcolorbox}
+\end{column}
+\hfill
+\begin{column}{.45\paperwidth}
+\begin{tcolorbox}[colback=white,colframe=SectionCyan,title=\textbf{Takeaway},coltitle=SectionCyan,attach title to upper,after title={\\[.3ex]},boxrule=1pt,arc=2mm]
+\justifying Summarize the main result and why it matters for the target audience.
+\end{tcolorbox}
+\end{column}
+\end{columns}
+\vspace{.55cm}
+\begin{columns}[t,totalwidth=.92\paperwidth]
+\begin{column}{.44\paperwidth}
+\sectionbar{SectionCyan}{1. Motivation and Goal}
+\begin{tcolorbox}[posterbox]\justifying Motivation, gap, hypothesis, and contribution bullets.\end{tcolorbox}
+\vspace{.45cm}
+\sectionbar{SectionBlue}{2. Theory and Method}
+\begin{tcolorbox}[posterbox]\justifying Formula space: $y=f(x;\theta)$, definitions, algorithm summary, and method diagram.\par\vspace{.25cm}\centering\includegraphics[width=.9\linewidth]{workflow-image}\end{tcolorbox}
+\end{column}
+\hfill
+\begin{column}{.44\paperwidth}
+\sectionbar{SectionBlue}{3. Experimental Pipeline}
+\begin{tcolorbox}[posterbox]\centering\includegraphics[width=.95\linewidth,height=.22\paperheight,keepaspectratio]{schematic-image}\par\justifying Pipeline caption and controls.\end{tcolorbox}
+\vspace{.45cm}
+\sectionbar{SectionCyan}{4. Results and Interpretation}
+\begin{tcolorbox}[posterbox]\centering\includegraphics[width=.95\linewidth]{result-panel}\par\vspace{.25cm}\begin{tabular}{lcc}\toprule Metric & Baseline & Ours \\\\ \midrule Value & -- & -- \\\\ Effect & -- & -- \\\\ \bottomrule\end{tabular}\par\justifying Key interpretation, limitations, references, and contact.\end{tcolorbox}
+\end{column}
+\end{columns}
+\end{frame}
+\end{document}
