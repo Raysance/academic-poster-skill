@@ -1,80 +1,312 @@
 \documentclass[final]{beamer}
-\usepackage[size=a0,orientation=portrait,scale=1.06]{beamerposter}
-\usepackage{graphicx,booktabs,amsmath,ragged2e,tcolorbox}
+\usepackage[orientation=portrait,size=custom,width=80,height=180,scale=1.12]{beamerposter}
+\usepackage{iftex}
+\ifPDFTeX
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\else
+\usepackage{fontspec}
+\IfFontExistsTF{Arial}{\setsansfont{Arial}\setmainfont{Arial}}{\setsansfont{TeX Gyre Heros}\setmainfont{TeX Gyre Heros}}
+\fi
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs,array,graphicx,tikz,ragged2e,xcolor,xparse}
+\usepackage[most]{tcolorbox}
+
+\definecolor{PosterNavy}{HTML}{102A43}
+\definecolor{PosterBlue}{HTML}{2F80ED}
+\definecolor{PosterTeal}{HTML}{00A896}
+\definecolor{PosterPurple}{HTML}{7B61FF}
+\definecolor{PosterOrange}{HTML}{F2994A}
+\definecolor{PosterRed}{HTML}{EB5757}
+\definecolor{PosterGreen}{HTML}{27AE60}
+\definecolor{PosterGray}{HTML}{627D98}
+\definecolor{PosterLight}{HTML}{F7FAFC}
+\definecolor{PosterLine}{HTML}{D9E2EC}
+
 \setbeamertemplate{navigation symbols}{}
-\definecolor{TopBanner}{RGB}{10,37,64}
-\definecolor{SectionCyan}{RGB}{0,168,150}
-\definecolor{SectionBlue}{RGB}{67,97,238}
-\definecolor{CardBg}{RGB}{248,249,250}
-\definecolor{CardBorder}{RGB}{233,236,239}
-\setbeamercolor{background canvas}{bg=white}
-\title{Academic Poster Preview}
-\subtitle{Full-width banner with modular rounded content cards}
-\author{Author Names}
-\institute{Institution / Department}
-\tcbset{
-  posterbox/.style={
-    colback=CardBg,
-    colframe=CardBorder,
-    arc=4mm,
-    boxrule=1.2pt,
-    left=10mm,
-    right=10mm,
-    top=8mm,
-    bottom=8mm
-  },
-  sectionbar/.style={
-    colframe=#1,
-    colback=#1,
-    arc=2mm,
-    boxrule=0pt,
-    top=3mm,
-    bottom=3mm,
-    left=8mm
-  }
+\setbeamertemplate{caption}[numbered]
+\setbeamercolor{normal text}{fg=PosterNavy,bg=white}
+\setbeamercolor{background canvas}{bg=PosterLight}
+\setbeamercolor{poster headline}{fg=white,bg=PosterNavy}
+\setbeamercolor{block title}{fg=white,bg=PosterNavy}
+\setbeamercolor{block body}{fg=PosterNavy,bg=white}
+\setbeamerfont{block title}{size=\Large,series=\bfseries}
+\setbeamerfont{block body}{size=\normalsize}
+
+\title{\bfseries Academic Poster Preview}
+\author{\texorpdfstring{Author Name(s) \quad | \quad Affiliation}{Author Name(s) | Affiliation}}
+\institute{Concise subtitle or one-sentence research contribution}
+
+\newcommand{\smallcap}[1]{{\color{PosterGray}\small #1}}
+\newcommand{\placeholdergraphic}[2][0.96\linewidth]{%
+  \begin{tikzpicture}
+    \node[
+      draw=PosterLine,
+      fill=PosterLight,
+      rounded corners=8pt,
+      minimum width=#1,
+      minimum height=#2,
+      align=center,
+      text=PosterGray,
+      font=\Large\bfseries
+    ] {Image / chart placeholder};
+  \end{tikzpicture}%
 }
-\newcommand{\sectionbar}[2]{\begin{tcolorbox}[sectionbar=#1]{\large\bfseries\color{white}#2}\end{tcolorbox}\vspace{.25cm}}
+\newcommand{\metricbox}[3]{%
+  \begin{tcolorbox}[
+    width=\linewidth,
+    colback=#1!8,
+    colframe=#1,
+    boxrule=1.4pt,
+    arc=7pt,
+    left=6pt,right=6pt,top=5pt,bottom=5pt
+  ]
+  \centering
+  {\bfseries\Large #2}\\[-1mm]
+  {\fontsize{27}{30}\selectfont\bfseries #3}
+  \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{posterblock}{O{PosterNavy} m O{}}{%
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white,
+    colframe=#1,
+    boxrule=1.25pt,
+    arc=8pt,
+    left=10pt,right=10pt,top=18pt,bottom=10pt,
+    title={#2},
+    coltitle=white,
+    fonttitle=\Large\bfseries,
+    colbacktitle=#1,
+    attach boxed title to top left={xshift=7pt,yshift*=-2mm},
+    boxed title style={arc=6pt,boxrule=0pt,left=9pt,right=9pt,top=4pt,bottom=4pt},
+    drop fuzzy shadow,
+    #3
+  ]
+  \justifying
+}{%
+  \end{tcolorbox}
+}
+
+\newenvironment{insightstrip}{%
+  \begin{tcolorbox}[
+    enhanced,
+    width=75.2cm,
+    colback=white,
+    colframe=PosterLine,
+    boxrule=1.0pt,
+    arc=10pt,
+    left=16pt,right=16pt,top=10pt,bottom=10pt,
+    borderline west={5pt}{0pt}{PosterBlue},
+    borderline east={5pt}{0pt}{PosterTeal},
+    drop fuzzy shadow
+  ]
+}{%
+  \end{tcolorbox}
+}
+
 \begin{document}
 \begin{frame}[t]
-\begin{tcolorbox}[colback=TopBanner,colframe=TopBanner,arc=0mm,boxrule=0pt,top=18mm,bottom=18mm,left=18mm,right=18mm]
+
+\begin{beamercolorbox}[wd=\paperwidth,center,sep=0pt]{poster headline}
+\vbox to 8.85cm{
+  \vfil
+  {\color{white}\fontsize{66}{72}\selectfont\inserttitle\par}
+  \vspace{0.45cm}
+  {\color{PosterLine}\fontsize{33}{39}\selectfont\insertinstitute\par}
+  \vspace{0.35cm}
+  {\color{white}\fontsize{25}{30}\selectfont\insertauthor\par}
+  \vfil
+}
+\end{beamercolorbox}
+\noindent{\color{PosterBlue}\rule{\paperwidth}{0.35cm}}
+
+\vspace{0.95cm}
+
+\begin{center}
+\begin{insightstrip}
+\begin{columns}[T,totalwidth=\linewidth]
+\begin{column}{0.47\linewidth}
+{\color{PosterBlue}\bfseries\Large Research Question}\par
+\vspace{0.12cm}
+\large State the central scientific or engineering question in one short, readable sentence.
+\end{column}
+\begin{column}{0.04\linewidth}
+\centering{\color{PosterLine}\rule{1.5pt}{3.0cm}}
+\end{column}
+\begin{column}{0.47\linewidth}
+{\color{PosterTeal}\bfseries\Large Takeaway}\par
+\vspace{0.12cm}
+\large Summarize the primary result or contribution without dense implementation detail.
+\end{column}
+\end{columns}
+\end{insightstrip}
+\end{center}
+
+\vspace{0.55cm}
+
+\begin{columns}[t,totalwidth=75.2cm]
+\begin{column}{0.48\textwidth}
+\begin{posterblock}[PosterBlue]{1. Motivation and Goal}[equal height group=row-one,height=22cm]
+\begin{itemize}
+  \item \textbf{Motivation.} Replace with concise context and problem gap.
+  \item \textbf{Approach.} Name the core method or system idea in one line.
+  \item \textbf{Goal.} State the poster objective and expected evidence.
+\end{itemize}
+\end{posterblock}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\begin{posterblock}[PosterTeal]{2. Theory and Formulation}[equal height group=row-one,height=22cm]
+\textbf{Core model}
+\[
+  y=f(x;\theta), \qquad z=g_\phi(x,y).
+\]
+\textbf{Objective}
+\[
+  \mathcal{L}=\mathcal{L}_{data}+\lambda\mathcal{R}(\theta).
+\]
+\smallcap{Use this area for formulas, variable definitions, and a short theory-to-measurement link.}
+\end{posterblock}
+\end{column}
+\end{columns}
+
+\vspace{0.75cm}
+
+\begin{posterblock}[PosterPurple]{3. Experimental Pipeline}[height=38cm]
+\begin{center}
+  \placeholdergraphic[68cm]{19cm}
+\end{center}
+\vspace{0.2cm}
+\begin{columns}[T,totalwidth=\linewidth]
+\begin{column}{0.31\linewidth}
+\textbf{Inputs and Data}
+\begin{itemize}
+  \item Dataset or sample source.
+  \item Controls and key variables.
+  \item Preprocessing summary.
+\end{itemize}
+\end{column}
+\begin{column}{0.31\linewidth}
+\textbf{Method Protocol}
+\begin{itemize}
+  \item Main algorithmic steps.
+  \item Evaluation setting.
+  \item Reproducible metric names.
+\end{itemize}
+\end{column}
+\begin{column}{0.31\linewidth}
+\textbf{Output Evidence}
+\begin{itemize}
+  \item Primary result panel.
+  \item Secondary validation.
+  \item Deployment or interpretation target.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{posterblock}
+
+\vspace{0.75cm}
+
+\begin{posterblock}[PosterGreen]{4. Results Visualization}[height=43cm]
+\begin{columns}[T,totalwidth=\linewidth]
+\begin{column}{0.48\linewidth}
+\metricbox{PosterGreen}{Primary Metric}{--\%}
+\vspace{0.25cm}
+\centering\placeholdergraphic[\linewidth]{15cm}
+\end{column}
+\begin{column}{0.48\linewidth}
+\metricbox{PosterBlue}{Sample Size}{n=--}
+\vspace{0.25cm}
+\centering\placeholdergraphic[\linewidth]{15cm}
+\end{column}
+\end{columns}
+\vspace{0.45cm}
+\begin{columns}[T,totalwidth=\linewidth]
+\begin{column}{0.48\linewidth}
+\centering\placeholdergraphic[\linewidth]{13cm}
+\end{column}
+\begin{column}{0.48\linewidth}
+\centering\placeholdergraphic[\linewidth]{13cm}
+\end{column}
+\end{columns}
+\end{posterblock}
+
+\vspace{0.75cm}
+
+\begin{columns}[t,totalwidth=75.2cm]
+\begin{column}{0.48\textwidth}
+\begin{posterblock}[PosterRed]{5. Key Findings}[equal height group=row-four,height=25cm]
+\begin{itemize}
+  \item \textbf{Finding 1.} Highlight the strongest validated result.
+  \item \textbf{Finding 2.} Summarize the most important comparison.
+  \item \textbf{Finding 3.} Note the main limitation or failure mode.
+\end{itemize}
+\vspace{0.2cm}
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Item} & \textbf{Baseline} & \textbf{Ours} & \textbf{Gap} \\
+\midrule
+Metric A & -- & -- & -- \\
+Metric B & -- & -- & -- \\
+Metric C & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{posterblock}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\begin{posterblock}[PosterOrange]{6. Next Steps and Impact}[equal height group=row-four,height=25cm]
+\begin{columns}[T,totalwidth=\linewidth]
+\begin{column}{0.58\linewidth}
+\begin{enumerate}
+  \item Extend evaluation to additional cases.
+  \item Improve robustness or interpretability.
+  \item Package results for deployment or replication.
+\end{enumerate}
+\end{column}
+\begin{column}{0.38\linewidth}
+\begin{tcolorbox}[colback=PosterLight,colframe=PosterOrange,arc=6pt,boxrule=1.2pt]
 \centering
-{\VeryHuge\bfseries\color{white}\inserttitle\par}
-\vspace{.35cm}
-{\LARGE\color{lightgray}\insertsubtitle\par}
-\vspace{.25cm}
-{\Large\color{lightgray}\insertauthor\quad|\quad\insertinstitute}
-\end{tcolorbox}
-\vspace{.65cm}
-\begin{columns}[t,totalwidth=.92\paperwidth]
-\begin{column}{.45\paperwidth}
-\begin{tcolorbox}[colback=white,colframe=SectionBlue,title=\textbf{Research Question},coltitle=SectionBlue,attach title to upper,after title={\\[.3ex]},boxrule=1pt,arc=2mm]
-\justifying State the core scientific or engineering question in one readable sentence.
-\end{tcolorbox}
-\end{column}
-\hfill
-\begin{column}{.45\paperwidth}
-\begin{tcolorbox}[colback=white,colframe=SectionCyan,title=\textbf{Takeaway},coltitle=SectionCyan,attach title to upper,after title={\\[.3ex]},boxrule=1pt,arc=2mm]
-\justifying Summarize the main result and why it matters for the target audience.
+\textbf{Status}\\[1mm]
+Current evidence summary.\\[2mm]
+\textbf{Next Evidence}\\[1mm]
+Additional data, validation, or demo.
 \end{tcolorbox}
 \end{column}
 \end{columns}
-\vspace{.55cm}
-\begin{columns}[t,totalwidth=.92\paperwidth]
-\begin{column}{.44\paperwidth}
-\sectionbar{SectionCyan}{1. Motivation and Goal}
-\begin{tcolorbox}[posterbox]\justifying Motivation, gap, hypothesis, and contribution bullets.\end{tcolorbox}
-\vspace{.45cm}
-\sectionbar{SectionBlue}{2. Theory and Method}
-\begin{tcolorbox}[posterbox]\justifying Formula space: $y=f(x;\theta)$, definitions, algorithm summary, and method diagram.\par\vspace{.25cm}\centering\includegraphics[width=.9\linewidth]{workflow-image}\end{tcolorbox}
-\end{column}
-\hfill
-\begin{column}{.44\paperwidth}
-\sectionbar{SectionBlue}{3. Experimental Pipeline}
-\begin{tcolorbox}[posterbox]\centering\includegraphics[width=.95\linewidth,height=.22\paperheight,keepaspectratio]{schematic-image}\par\justifying Pipeline caption and controls.\end{tcolorbox}
-\vspace{.45cm}
-\sectionbar{SectionCyan}{4. Results and Interpretation}
-\begin{tcolorbox}[posterbox]\centering\includegraphics[width=.95\linewidth]{result-panel}\par\vspace{.25cm}\begin{tabular}{lcc}\toprule Metric & Baseline & Ours \\\\ \midrule Value & -- & -- \\\\ Effect & -- & -- \\\\ \bottomrule\end{tabular}\par\justifying Key interpretation, limitations, references, and contact.\end{tcolorbox}
+\end{posterblock}
 \end{column}
 \end{columns}
+
+\vspace{0.55cm}
+
+\begin{posterblock}[PosterNavy]{References and Contact}[height=14cm]
+\small
+\begin{columns}[T,totalwidth=\linewidth]
+\begin{column}{0.32\linewidth}
+\textbf{References}\par
+List 2--4 essential references only.
+\end{column}
+\begin{column}{0.32\linewidth}
+\textbf{Acknowledgements}\par
+Funding, lab, or collaborator note.
+\end{column}
+\begin{column}{0.32\linewidth}
+\textbf{Contact / QR}\par
+Place approved QR or contact details here.
+\end{column}
+\end{columns}
+\end{posterblock}
+
+\vfill
+\begin{center}
+{\color{PosterGray}\small Bottom band intentionally reserved for concise references, acknowledgements, contact, or QR content.}
+\end{center}
+
 \end{frame}
 \end{document}

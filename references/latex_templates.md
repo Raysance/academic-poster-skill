@@ -19,11 +19,12 @@ Offer these 3 selected templates for user selection before final LaTeX poster pr
 | File | Style | Best for |
 |---|---|---|
 | `assets/latex_templates/11_minimal_metric_callouts.tex` | Minimal metric callouts | White-space-heavy portrait posters with oversized standalone quantitative highlights |
-| `assets/latex_templates/12_full_width_banner_cards.tex` | Full-width banner cards | Guided engineering/project posters with a dark header and rounded modular cards |
+| `assets/latex_templates/12_full_width_banner_cards.tex` | Default modern vertical card system | Recommended default; tall portrait posters with a navy hero header, insight strip, colorful rounded cards, metric callouts, visual result panels, and a filled footer |
 | `assets/latex_templates/13_dense_three_column_conference.tex` | Dense three-column conference | Information-rich landscape posters in a classic conference three-column flow |
 
 ## Selection guide
 
+- Default to `assets/latex_templates/12_full_width_banner_cards.tex` unless the user explicitly prefers another layout.
 - Choose **Gemini/beamerposter** for most polished academic conference posters.
 - Choose **tikzposter** when the poster benefits from large visual blocks, process diagrams, or playful thematic styling.
 - Choose **baposter** when the user needs many tightly positioned sections or a legacy scientific poster look.

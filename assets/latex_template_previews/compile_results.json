@@ -4,20 +4,23 @@
     "Success": true,
     "Pdf": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\11_minimal_metric_callouts.pdf",
     "Png": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\11_minimal_metric_callouts.png",
-    "Log": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\11_minimal_metric_callouts\\compile.log"
+    "Log": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\11_minimal_metric_callouts\\compile.log",
+    "Default": false
   },
   {
     "Template": "12_full_width_banner_cards.tex",
     "Success": true,
     "Pdf": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\12_full_width_banner_cards.pdf",
     "Png": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\12_full_width_banner_cards.png",
-    "Log": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\12_full_width_banner_cards\\compile.log"
+    "Log": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\12_full_width_banner_cards\\compile.log",
+    "Default": true
   },
   {
     "Template": "13_dense_three_column_conference.tex",
     "Success": true,
     "Pdf": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\13_dense_three_column_conference.pdf",
     "Png": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\13_dense_three_column_conference.png",
-    "Log": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\13_dense_three_column_conference\\compile.log"
+    "Log": "D:\\Desktop\\academic-poster-skill\\assets\\latex_template_previews\\13_dense_three_column_conference\\compile.log",
+    "Default": false
   }
 ]

@@ -46,8 +46,9 @@ poster_work/
    - Generate the poster only from the approved outline, not directly from unapproved raw notes.
 
 3. **Template preview and selection**
-   - Before final poster production, offer the 3 selected LaTeX preview templates in `assets/latex_templates/` and summarize their style/use case.
-   - Ask the user to pick one template or approve an adaptation. Use the selected template as the layout starting point, preserving spaces for images, tables, formulas, and text modules.
+   - Before final poster production, use `assets/latex_templates/12_full_width_banner_cards.tex` as the default LaTeX style unless the user selects another template.
+   - Offer the 3 selected LaTeX preview templates in `assets/latex_templates/` and summarize their style/use case; present template 12 as the recommended default.
+   - Use the selected or default template as the layout starting point, preserving spaces for images, tables, formulas, and text modules.
 
 ## Required outline framework
 
@@ -150,7 +151,7 @@ If AI image generation is used, first create `poster_work/scripts/generate_ai_im
 For image background cleanup or transparent PNG output, copy or run the bundled `scripts/make_image_transparent.py` directly. Do not generate ad hoc transparency scripts at runtime.
 
 ## Format notes
-- LaTeX: use one of the 3 selected preview templates unless the user requests another template; compile PDF when possible.
+- LaTeX: default to `assets/latex_templates/12_full_width_banner_cards.tex`; use another selected preview template only when the user requests or approves it; compile PDF when possible.
 - PPT/PPTX: create one poster-sized editable slide; export a PDF proof when possible.
 
 ## Final response checklist
