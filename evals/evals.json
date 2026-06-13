@@ -3,18 +3,18 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "请根据我提供的实验大纲、三份CSV结果数据、作者和机构信息，生成一个中文A0横版LaTeX学术海报。我还提供了学校logo和两张实验装置照片。第一步请只确认AI接口、尺寸、语言、文件路径、输出格式等工程要求；第二步再确认所有poster内容，包括标题作者、logo/图片怎么用、科学outline、理论公式、流程图、实验简图和图表方案。 ??????????????5?????tex???????????",
-      "expected_output": "Creates project_requirements.md first with only engineering/setup items such as AI API, size, language, paths, output format, and build tools; after approval, creates experiment_outline.md containing all poster content decisions, including authors, logos/images, scientific story, formula, workflow flowchart, schematic, and chart plan. Before final production, it offers the 3 selected LaTeX preview templates or adapts one selected by the user."
+      "prompt": "??????????????CSV???????????????????A0??LaTeX????????????logo?????????????????AI????????????????????????????????poster??????????logo/????????outline????????????????????????3???LaTeX???????????",
+      "expected_output": "Creates project_requirements.md first with only engineering/setup items such as AI API, size, language, paths, output format, and build tools; after approval, creates experiment_outline.md with poster/project content only and no engineering details such as AI API, file paths, output folders, build tools, or script names. It records logo/image placement decisions but keeps institutional logos out of AI-generated diagrams. Before final production, it offers the 3 selected LaTeX preview templates or adapts one selected by the user."
     },
     {
       "id": 2,
       "prompt": "I need a portrait 36x48 inch English PPT academic poster from this methods outline and dataset. First confirm only engineering requirements: AI interface, size, language, output path, file structure, and PPT export. Put all poster content decisions in the second outline confirmation. Keep it visually modular in portrait orientation. Avoid large blank areas while preserving a clean academic layout.",
-      "expected_output": "Uses two gates with strict separation: engineering-only project_requirements.md first, then all poster content in experiment_outline.md; final poster uses the approved outline only and keeps a balanced multi-module portrait layout. It also checks the full poster for large empty regions and fixes accidental gaps without clutter. Before final production, it offers the 3 selected LaTeX preview templates or adapts one selected by the user."
+      "expected_output": "Uses two gates with strict separation: engineering-only project_requirements.md first, then poster/project content only in experiment_outline.md. The final poster uses the approved outline only, keeps a balanced multi-module portrait layout, avoids one-row single-module and one-column single-module layouts, and checks for page overflow, module overflow, and text clipping before final export."
     },
     {
       "id": 3,
       "prompt": "我的实验流程、理论公式和结果图都比较复杂。我会给你Image 2.0的API文档和KEY，请先确认API、尺寸、语言、文件路径等工程项，不要在第一步确认poster内容。第二步再确认完整outline。workflow流程图是必要部分，结果展示要多种图表形式。",
-      "expected_output": "Does not mix poster content into the first gate; confirms AI interface/size/language/paths as engineering setup, then confirms a full content outline with mandatory workflow flowchart and diverse result chart forms before generating assets or poster files. It avoids visually dominant empty regions by rebalancing modules or adding useful scientific callouts/panels. Before final production, it offers the 3 selected LaTeX preview templates or adapts one selected by the user."
+      "expected_output": "Does not mix poster content into the first gate and does not include engineering details in experiment_outline.md. It confirms workflow, theory, results, required image roles, and diverse chart forms as project content; uses Python for exact data; uses routed AI prompt templates only for suitable diagrams; uses the bundled make_image_transparent.py script for transparent PNG cleanup rather than generating a new transparency script."
     }
   ]
 }

@@ -4,7 +4,7 @@ Create academic research posters from experiment outlines, data, author metadata
 
 Key behavior:
 
-- Uses two approval gates: first engineering requirements in `project_requirements.md`, then all poster content in `experiment_outline.md`.
+- Uses two approval gates: first engineering requirements in `project_requirements.md`, then poster/project content only in `experiment_outline.md`.
 - Generates the final poster only from the approved outline.
 - Requires a workflow/pipeline flowchart unless the user explicitly refuses it.
 - Bundles 3 selected LaTeX preview templates for selection before final poster production.
@@ -19,9 +19,12 @@ Install by copying the `academic-poster/` folder into any Codex skills directory
 
 Included files:
 
-- `SKILL.md` — concise workflow and poster rules.
-- `references/latex_templates.md` — LaTeX poster template sources.
-- `assets/latex_templates/` — starter LaTeX templates.
-- `assets/latex_template_previews/` — compiled PDF/PNG previews and a contact sheet for the 3 selected templates.
-- `scripts/generate_data_figures.py` — Python data summary and validation helper.
-- `scripts/generate_ai_image_template.py` — adaptable AI image API script template.
+- `SKILL.md` - concise workflow and poster rules.
+- `references/latex_templates.md` - LaTeX poster template sources.
+- `references/image_prompt_templates.md` - AI image prompt routing index.
+- `references/image_prompts/` - progressively disclosed prompt templates loaded only when relevant.
+- `assets/latex_templates/` - starter LaTeX templates.
+- `assets/latex_template_previews/` - compiled PDF/PNG previews and a contact sheet for the 3 selected templates.
+- `scripts/generate_data_figures.py` - Python data summary and validation helper.
+- `scripts/generate_ai_image_template.py` - adaptable AI image API script template.
+- `scripts/make_image_transparent.py` - reusable transparent PNG cleanup script.
